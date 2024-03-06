@@ -14,3 +14,18 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
+  deploy:
+    runs-on: ununtu-lates
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4.1.1
+      - name: install NodeJS
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: 18
+      - name: install dependencies
+        run: npm ci
+      - name: Build Project
+        run: npm run build
+      - name: Deploy
+        run: echo "Deploying the artifact"
