@@ -27,22 +27,20 @@ jobs:
         - name: upload artifacts
           uses: actions/upload-artifact@v4.3.1
           with:
-            name: dist-files
-            path: |
-                dist
-                package.json
+            name: dist-files-react
+            path: dist
+                # dist
+                # package.json
                 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
-        - name: checkout code
-          uses: actions/checkout@v4.1.1
-        - name: install NodeJS
-          uses: actions/setup-node@v4.0.2
+        - name: Get build artifacts
+          uses: actions/download-artifact@4.1.4
           with:
-            node-version: 18
-        - name: install dependencies
-          run: npm ci
+            name: dist-files-react
+        - name: Output contents
+          run: ls 
         - name: Deploy
           run: echo "Deploying the artifact"
