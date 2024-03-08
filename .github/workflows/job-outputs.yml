@@ -1,4 +1,4 @@
-name: Uploading Artifacts
+name: Output the filenames creted
 on: [push, workflow_dispatch]
 jobs:
   test:

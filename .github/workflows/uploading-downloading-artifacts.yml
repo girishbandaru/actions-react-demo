@@ -1,5 +1,5 @@
-name: Uploading Artifacts
-on: [push, workflow_dispatch]
+name: Uploading and downloading Artifacts
+on: [workflow_dispatch]
 jobs:
   test:
     runs-on: ubuntu-latest
